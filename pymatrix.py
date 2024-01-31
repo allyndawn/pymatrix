@@ -1,5 +1,6 @@
 import sys
 import time
+import eyes
 
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 
@@ -18,7 +19,7 @@ if __name__ == "__main__":
 
     try:
         print("Press CTRL-C to stop")
-        matrix.SetPixel(4, 4, 100, 100, 100)
+        eyes.draw(matrix)
 
         while True:
             time.sleep(100)

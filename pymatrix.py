@@ -1,6 +1,6 @@
 import sys
 import time
-from renderers import Eyes
+from renderers import Eyes, KITT
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 
 if __name__ == "__main__":
@@ -15,14 +15,14 @@ if __name__ == "__main__":
     options.disable_hardware_pulsing = True
 
     matrix = RGBMatrix(options = options)
-    eyes = Eyes(matrix)
+    renderer = KITT(matrix)
 
     try:
         print("Press CTRL-C to stop")
-        eyes.draw()
 
         while True:
-            time.sleep(100)
+            renderer.draw()
+            time.sleep(0.1)
 
     except KeyboardInterrupt:
         print("Done")

@@ -40,3 +40,9 @@ ModuleNotFoundError: No module named 'PIL'
 ```
 (.venv) pi@raspberrypi:~/Repos/pymatrix $ /home/pi/Repos/pymatrix/.venv/bin/python /home/pi/Repos/pymatrix/pymatrix.py
 ```
+
+- To avoid the "Can't set realtime thread priority" warning, do the following (replace 11 with your Python version)
+
+```
+sudo setcap 'cap_sys_nice=eip' /usr/bin/python3.xx
+```

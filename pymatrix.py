@@ -1,12 +1,11 @@
 import sys
 import time
-import eyes
-
+from renderers import Eyes
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 
 if __name__ == "__main__":
-    options = RGBMatrixOptions()
     # See https://github.com/hzeller/rpi-rgb-led-matrix/blob/master/bindings/python/samples/samplebase.py
+    options = RGBMatrixOptions()
     options.rows = 32
     options.cols = 64
     options.chain_length = 1
@@ -16,10 +15,11 @@ if __name__ == "__main__":
     options.disable_hardware_pulsing = True
 
     matrix = RGBMatrix(options = options)
+    eyes = Eyes(matrix)
 
     try:
         print("Press CTRL-C to stop")
-        eyes.draw(matrix)
+        eyes.draw()
 
         while True:
             time.sleep(100)
